@@ -2,8 +2,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="500"
         x:Class="EventCalendar.MainWindow"
-        Title="EventCalendar">
-    Welcome to Avalonia!
+        Title="ContactManager">
+    <StackPanel Margin="10" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox x:Name="EventName" Watermark="Nazwa wydarzenia" Width="300" Margin="10"/>
+            <TextBox x:Name="EventDesc" Watermark="Opis wydarzenia" Width="300" Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Wybierz dzień tygodnia dla tego wydarzenia:" Margin="10" VerticalAlignment="Center" Width="300" FontWeight="500"/>
+            <ComboBox x:Name="EventDay" Margin="10" VerticalAlignment="Center" Width="300">
+                <ComboBoxItem Content="Poniedziałek"/>
+                <ComboBoxItem Content="Wtorek"/>
+                <ComboBoxItem Content="Środa"/>
+                <ComboBoxItem Content="Czwartek"/>
+                <ComboBoxItem Content="Piątek"/>
+                <ComboBoxItem Content="Sobota"/>
+                <ComboBoxItem Content="Niedziela"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Czy jest to ważne wydarzenie?" Margin="10" VerticalAlignment="Center" Width="300" FontWeight="500"/>
+            <CheckBox x:Name="EventImportant" Margin="10" VerticalAlignment="Center" Width="140"/>
+            <Button x:Name="EventAdd" Width="150" Content="Dodaj wydarzenie" HorizontalContentAlignment="Center" Click="EventAdd_OnClick"/>
+        </StackPanel>
+        <ListBox x:Name="EventList" Height="300"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Filtruj dni tygodnia" Margin="10" VerticalAlignment="Center" Width="300" FontWeight="500"/>
+            <ComboBox x:Name="EventDayFilter" Margin="10" VerticalAlignment="Center" Width="300" SelectionChanged="EventDayFilter_OnSelectionChanged">
+                <ComboBoxItem Content="Wszystko"/>
+                <ComboBoxItem Content="Poniedziałek"/>
+                <ComboBoxItem Content="Wtorek"/>
+                <ComboBoxItem Content="Środa"/>
+                <ComboBoxItem Content="Czwartek"/>
+                <ComboBoxItem Content="Piątek"/>
+                <ComboBoxItem Content="Sobota"/>
+                <ComboBoxItem Content="Niedziela"/>
+            </ComboBox>
+        </StackPanel>
+    </StackPanel>
 </Window>
